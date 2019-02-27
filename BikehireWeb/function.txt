@@ -1,0 +1,19 @@
+Functional requirements
+
+Using website and android mobile app to process the bike rent system.
+Three main different types of characters: guests, user, administrator
+The events that guests and users can both do with mobile or website, and administrator can only use website to control.
+
+The guests can only check or browse the information about the store, including 
+checking the position of stores on map in the app, 
+checking the closest position of the store to himself, 
+choosing the specified store, 
+viewing the distance to the store,
+viewing the opening time of the store,
+checking the available bikes in the store, the information of the bike, the price of the bike for a unit time, and the available time for the bike.
+
+The guests can also register to get an account and using this account to login and get the character of user.
+Once the character of user has been login, the user can do much more things.
+The user can submit the order of renting the bike within an available time, and the order will be submitted to the server. Then they will transfer to the page to pay for the deposit. After that, the receipt and a QR code processed automatically and user can use this QR code to the store to get the bike. User can also check the personal order in the personal page.
+
+The administrator can help the people who wants to rent a bike immediately in the store. They can also modify the information about the bike, including modify the available time of the bike or the price. 
