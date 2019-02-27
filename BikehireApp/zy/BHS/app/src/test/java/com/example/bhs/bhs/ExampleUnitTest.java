@@ -1,4 +1,4 @@
-package com.example.wodediannao.test;
+package com.example.bhs.bhs;
 
 import org.junit.Test;
 

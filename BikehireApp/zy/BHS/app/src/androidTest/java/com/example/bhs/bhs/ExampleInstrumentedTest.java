@@ -1,4 +1,4 @@
-package com.example.wodediannao.test;
+package com.example.bhs.bhs;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.wodediannao.test", appContext.getPackageName());
+        assertEquals("com.example.bhs.bhs", appContext.getPackageName());
     }
 }

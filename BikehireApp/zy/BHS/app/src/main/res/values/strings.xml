@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">BHS</string>
-    <string name="textview">TextView</string>
-
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Map</string>
+    <string name="title_notifications">User</string>
+    <string-array name="location">
+        <item>Leeds train station</item>
+        <item>Leeds Trinity</item>
+        <item>Leeds University</item>
+    </string-array>
 </resources>
