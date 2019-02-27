@@ -12,7 +12,7 @@ def get_html(html_file_name):
 
     # if not favicon.ico
     if html_file_name != "favicon.ico":
-        html_file_name = "html/" + html_file_name
+        html_file_name =  html_file_name
 
     # create csrf token
     csrf_token = csrf.generate_csrf()

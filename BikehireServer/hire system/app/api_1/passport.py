@@ -1,7 +1,7 @@
 from . import api
 from flask import request, jsonify, current_app, session
 from app.utils.response_code import RET
-from app import db
+from app import db,constants,redis_store
 from app.models import User
 from sqlalchemy.exc import IntegrityError
 
@@ -22,16 +22,14 @@ def register():
     password2 = req_dict.get("password2")
 
     if not all([name, password, password2]):
-        return jsonify(errno=RET.PARAMERR, errmsg="paraments incompleted")
+        return jsonify(errno=RET.PARAMERR, errmsg="missing parameters")
 
     if password != password2:
-        return jsonify(errno=RET.PARAMERR, errmsg="Inconsistent secondary password")
+        return jsonify(errno=RET.PARAMERR, errmsg="password not match")
 
     user = User(name=name)
     user.password = password
 
-    db.session.add(user)
-    db.session.commit()
     try:
         db.session.add(user)
         db.session.commit()
@@ -44,3 +42,42 @@ def register():
     session["user_id"] = user.id
 
     return jsonify(errno=RET.OK, errmsg="register success")
+
+@api.route("/sessions", methods=["POST"])
+def login():
+    req_dict = request.get_json()
+    name = req_dict.get("name")
+    password = req_dict.get("password")
+
+    if not all([name, password]):
+        return jsonify(errno=RET.PARAMERR, errmsg="missing parameters ")
+        # check the number of error
+        user_ip = request.remote_addr
+        try:
+            access_nums = redis_store.get("access_num_%s" % user_ip)
+        except Exception as e:
+            current_app.logger.error(e)
+        else:
+            if access_nums is not None and int(access_nums) >= constants.LOGIN_ERROR_MAX_TIMES:
+                return jsonify(errno=RET.REQERR, errmsg="over login error times")
+
+    try:
+        user = User.query.filter_by(name=name).first()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="get user data failed")
+
+        # check password with database
+    if user is None or not user.check_password(password):
+
+        try:
+            redis_store.incr("access_num_%s" % user_ip)
+            redis_store.expire("access_num_%s" % user_ip, constants.LOGIN_ERROR_FORBID_TIME)
+        except Exception as e:
+            current_app.logger.error(e)
+
+        return jsonify(errno=RET.DATAERR, errmsg="name or password incorrect")
+     # login success
+    session["name"] = user.name
+    session["user_id"] = user.id
+    return jsonify(errno=RET.OK, errmsg="login success")
