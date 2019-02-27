@@ -8,6 +8,7 @@ from flask_wtf import CSRFProtect
 import redis
 import logging
 from logging.handlers import RotatingFileHandler
+from app.utils.commons import ReConverter
 
 #datebase
 db = SQLAlchemy()
@@ -42,8 +43,13 @@ def create_app(config_name):
 
     # use flask-session save session into redis
     Session(app)
-    CSRFProtect(app)
+    # CSRFProtect(app)
 
     from . import api_1
     app.register_blueprint(api_1.api, url_prefix="/api/v1.0")
+    # add converter into app object
+    app.url_map.converters["re"] = ReConverter
+
+    from app import web_html
+    app.register_blueprint(web_html.html)
     return app

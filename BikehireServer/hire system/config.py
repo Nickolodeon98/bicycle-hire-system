@@ -4,7 +4,8 @@ class Config(object):
     DEBUG = True
     SECRET_KEY = "XHSOI*Y9dfs9cshd9"
     #DATEBASE
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///system.db'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///system.db'
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@127.0.0.1:3306/bike"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     #redis

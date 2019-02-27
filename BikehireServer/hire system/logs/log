@@ -61,3 +61,195 @@ WARNING demo.py:9 warn info
 INFO demo.py:10 info info
 DEBUG demo.py:11 debug info
 INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 02:01:50] "GET /api/v1.0/index HTTP/1.1" 200 -
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR __init__.py:97 Error: Directory migrations already exists
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET / HTTP/1.1" 500 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:29] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index HTTP/1.1" 500 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:53:33] "GET /api/v1.0/index?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ERROR demo.py:8 error info
+WARNING demo.py:9 warn info
+INFO demo.py:10 info info
+DEBUG demo.py:11 debug info
+INFO _internal.py:88 127.0.0.1 - - [26/Feb/2019 20:54:16] "GET /api/v1.0/index HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\__init__.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:00:47] "POST /api/v1.0/users HTTP/1.1" 405 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:01:02] "GET /api/v1.0/users HTTP/1.1" 404 -
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:01:21] "GET / HTTP/1.1" 404 -
+ERROR demo.py:8 error info
+WARNING demo.py:9 warn info
+INFO demo.py:10 info info
+DEBUG demo.py:11 debug info
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:01:29] "GET /api/v1.0/index HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:01:34] "GET /api/v1.0/users HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:03:11] "POST /api/v1.0/users HTTP/1.1" 405 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\__init__.py', reloading
+INFO _internal.py:88  * Restarting with stat
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:05:12] "POST /api/v1.0/users HTTP/1.1" 400 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:05:27] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:06:06] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:08:00] "GET /api/v1.0/users HTTP/1.1" 404 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:08:04] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:09:27] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 10, 55, 693000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 10, 55, 693000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$9keZpL27$cb988caac4855fb9280616fe5d24f41bfcb4350ced23e8b88983bc42b55b273e'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:10:55] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:12:45] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 13, 27, 172000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 13, 27, 172000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$Jwx4BWQw$403b7215355bd2c2ed06290e97817dd9141bf8429c2fef6e16393e18b1f44515'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:13:27] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 16, 26, 72000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 16, 26, 72000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$8RZcy2nQ$e841303d34afb7106f73a47197b7c1972cf7eaea349b078322303e6fe2ad6356'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:16:26] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 17, 36, 641000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 17, 36, 641000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$jnEy6nkQ$460853b39e6f323fe43d8ea39972e2594860ff60000526bb23e507e0dcb9b277'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:17:36] "POST /api/v1.0/users HTTP/1.1" 200 -
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 17, 39, 425000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 17, 39, 425000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$gKIj55yY$495c1ef457022c8bf035b26498a812c377d8c40224ee60444231abbe4d7f80fb'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:17:39] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:17:56] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:18:05] "POST /api/v1.0/users HTTP/1.1" 400 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:18:10] "POST /api/v1.0/users HTTP/1.1" 200 -
+ERROR passport.py:38 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 18, 17, 459000), 'name': u'jikaisong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 18, 17, 459000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$3BpiTVFO$d8063e9cbdcbdfdc59974fc1e95626602c89c915506ce582c747796cea855a73'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:18:17] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:18:51] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:19:46] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:37 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 20, 2, 395000), 'name': u'jiong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 20, 2, 395000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$GreOOydu$bc67c22e11d2bbcdce850904a37674c9eb0b4c0abf2f3d0fdaec29a8701f4a91'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:20:02] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:37 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 20, 12, 93000), 'name': u'jiong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 20, 12, 93000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$NPZDXV0Q$a4b64d7d80701d796b47972335f9d48acac37a62cabd759d5a6e8f78db02cba6'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:20:12] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR passport.py:37 (pymysql.err.IntegrityError) (1048, u"Column 'email' cannot be null") [SQL: u'INSERT INTO user (create_time, update_time, name, password_hash, email, avatar_url) VALUES (%(create_time)s, %(update_time)s, %(name)s, %(password_hash)s, %(email)s, %(avatar_url)s)'] [parameters: {'update_time': datetime.datetime(2019, 2, 27, 3, 23, 48, 269000), 'name': u'jiong', 'avatar_url': None, 'create_time': datetime.datetime(2019, 2, 27, 3, 23, 48, 269000), 'email': None, 'password_hash': 'pbkdf2:sha256:50000$xB0gw5t5$43fb61354514c144959e4f0bcae291d67b0356e901c88471e22d6eaf9e4a4c3a'}] (Background on this error at: http://sqlalche.me/e/gkpj)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:23:48] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:24:12] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:26:04] "POST /api/v1.0/users HTTP/1.1" 500 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\models.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88 127.0.0.1 - - [27/Feb/2019 03:28:02] "POST /api/v1.0/users HTTP/1.1" 200 -
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:88  * Detected change in 'C:\\Users\\71088\\hire system\\app\\api_1\\passport.py', reloading
+INFO _internal.py:88  * Restarting with stat
+WARNING _internal.py:88  * Debugger is active!
+INFO _internal.py:88  * Debugger PIN: 133-138-167
+INFO _internal.py:88  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
