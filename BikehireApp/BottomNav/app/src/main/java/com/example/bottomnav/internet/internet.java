@@ -85,7 +85,7 @@ public class internet {
         try {
             URL url=new URL(urlStr);
             HttpURLConnection connect=(HttpURLConnection)url.openConnection();
-            connect.setDoInput(true);
+            //connect.setDoInput(true);
             connect.setDoOutput(true);
             connect.setRequestMethod("POST");
             connect.setUseCaches(false);

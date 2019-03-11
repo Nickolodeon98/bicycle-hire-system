@@ -14,8 +14,16 @@ import com.example.bottomnav.MainActivity;
 import com.example.bottomnav.R;
 import com.example.bottomnav.internet.internet;
 
-import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
+import java.util.ArrayList;
+import org.apache.http.util.EncodingUtils;
+import org.json.JSONException;
+
+
+import java.io.IOException;
+import java.io.InputStream;
+
 
 public class page_login extends AppCompatActivity {
 
@@ -38,11 +46,10 @@ public class page_login extends AppCompatActivity {
         tv_lgi_hop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                flag=2;
-                if(flag==2){
+
                     Intent intent1=new Intent(page_login.this, MainActivity.class);
                     startActivity(intent1);
-                }
+
                 finish();
             }
         });
@@ -58,6 +65,7 @@ public class page_login extends AppCompatActivity {
                 final String urlStr="http://122.114.237.201/usercontrol/login";
                 final String num=username.getText().toString().trim();
                 final String psw=password.getText().toString().trim();
+
                 if("".equals(num)||"".equals(psw))
                 {
                     Toast.makeText(page_login.this,"Please enter the right username and password",Toast.LENGTH_SHORT).show();
@@ -67,48 +75,77 @@ public class page_login extends AppCompatActivity {
                     new Thread(){
                         @Override
                         public void run() {
-                            String result= internet.checkuser(urlStr,num,psw);
-                            System.out.println(result);
-                            if (result.equals("not exsits"))
-                            {
-                                Looper.prepare();
-                                Toast.makeText(page_login.this,"用户名不存在！",Toast.LENGTH_SHORT).show();
-                                Looper.loop();
+                            int check = 0;
+                            int id=0;
+                            String name="";
+                            String email="";
+                            String password="";
+                            //String result= internet.gethttpresult(urlStr);
+                            String result1="";
+                            String result="";
+                            try {
+
+
+                                InputStream is = getResources().getAssets().open("test.json");
+                                int length = is.available();
+                                byte[] buffer = new byte[length];
+                                is.read(buffer);
+                                result = EncodingUtils.getString(buffer, "utf-8");
+                                is.close();
+
+                            } catch (IOException e){
+                                e.printStackTrace();
                             }
-                            else if(result.equals("internet errar"))
-                            {
-                                Looper.prepare();
-                                Toast.makeText(page_login.this,"网络连接错误！",Toast.LENGTH_SHORT).show();
-                                Looper.loop();
-                            }
-                            else{
-                                try {
-                                    JSONObject result_json=new JSONObject(result);
-                                    String message=result_json.getString("message:");
-                                    if("success".equals(message))
+                            result1=result.substring(result.indexOf("["),result.indexOf("]")+1);
+
+                            try {
+                                JSONArray result_json=new JSONArray(result1);
+
+                                for (int i = 0; i < result_json.length(); i++) {
+                                    try {
+                                        JSONObject object = result_json.getJSONObject(i);
+                                        id = object.getInt("id");
+                                        name = object.getString("name");
+                                        email = object.getString("press");
+                                        password = object.getString("author");
+
+                                        if (num.equals(name) && psw.equals(password)) {
+                                            check = 1;
+                                            break;
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                if(check==1)
                                     {
                                         SharedPreferences user_data=getSharedPreferences("user_data",MODE_PRIVATE);
                                         SharedPreferences.Editor et=user_data.edit();
-                                        et.putInt("user_id",result_json.getInt("userID"));
+                                        et.putInt("user_id",id);
+                                        et.putString("name", name);
+                                        et.putString("email", email);
+                                        et.putString("password", password);
                                         et.commit();
-                                        if(flag==2){
-                                            Intent intent1=new Intent(page_login.this,MainActivity.class);
-                                            startActivity(intent1);
-                                        }
+
+                                        Intent intent1=new Intent(page_login.this,MainActivity.class);
+                                        startActivity(intent1);
+
                                         finish();
                                     }
-                                    else
-                                    {
-                                        Looper.prepare();
-                                        Toast.makeText(page_login.this,"Please enter the right username and password",Toast.LENGTH_SHORT).show();
-                                        Looper.loop();
-                                    }
+                                if(check==0)
+                                {
+                                    Looper.prepare();
+                                    Toast.makeText(page_login.this,"Please enter the right username and password",Toast.LENGTH_SHORT).show();
+                                    Looper.loop();
+                                }
+
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                     System.out.println(e.toString());
                                 }
-                            }
+
 
                         }
                     }.start();

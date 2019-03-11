@@ -1,0 +1,169 @@
+{
+    "type": "table",
+    "database": null,
+    "name": "Order_Info",
+    "withoutRowId": true,
+    "ddl": "CREATE TABLE Order_Info (ORDER_ID INTEGER PRIMARY KEY NOT NULL UNIQUE, USER_ID INTEGER REFERENCES User_Info (USER_ID) NOT NULL, BIKE_ID INTEGER NOT NULL REFERENCES Bike_Info (BIKE_ID), BEGIN_DATE DATETIME NOT NULL, END_DATE DATETIME NOT NULL, DAYS INTEGER NOT NULL, STATUS STRING NOT NULL, COMMENT STRING, BIKE_PRICE DOUBLE NOT NULL, AMOUNT INTEGER NOT NULL);",
+    "columns": [
+        {
+            "name": "ORDER_ID",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY "
+                },
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL "
+                },
+                {
+                    "type": "UNIQUE",
+                    "definition": "UNIQUE"
+                }
+            ]
+        },
+        {
+            "name": "USER_ID",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "REFERENCES User_Info (USER_ID) "
+                },
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "BIKE_ID",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL "
+                },
+                {
+                    "type": "FOREIGN KEY",
+                    "definition": "REFERENCES Bike_Info (BIKE_ID)"
+                }
+            ]
+        },
+        {
+            "name": "BEGIN_DATE",
+            "type": "DATETIME",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "END_DATE",
+            "type": "DATETIME",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "DAYS",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "STATUS",
+            "type": "STRING",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "COMMENT",
+            "type": "STRING"
+        },
+        {
+            "name": "BIKE_PRICE",
+            "type": "DOUBLE",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "AMOUNT",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        }
+    ],
+    "rows": [
+        [
+            1000,
+            1524,
+            1,
+            "16\/11\/2019",
+            "17\/11\/2019",
+            1,
+            "meikaishi",
+            "nihao",
+            15,
+            1
+        ],
+        [
+            1001,
+            1525,
+            2,
+            "17\/10\/2019",
+            "20\/10\/2019",
+            3,
+            "meikaishi",
+            "null",
+            20,
+            2
+        ],
+        [
+            1002,
+            1526,
+            3,
+            "02\/02\/2019",
+            "09\/02\/2019",
+            7,
+            "cancled",
+            "",
+            20,
+            1
+        ],
+        [
+            1003,
+            1526,
+            3,
+            "11\/02\/2019",
+            "12\/02\/2019",
+            1,
+            "completed",
+            null,
+            20,
+            1
+        ]
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "type": "table",
+    "database": null,
+    "name": "Bike_Info",
+    "withoutRowId": true,
+    "ddl": "CREATE TABLE Bike_Info (BIKE_ID INTEGER PRIMARY KEY UNIQUE NOT NULL, BIKE_PRICE DOUBLE NOT NULL, INDEX_IMAGE_URL STRING NOT NULL, LOCATION STRING NOT NULL, TITLE STRING NOT NULL);",
+    "columns": [
+        {
+            "name": "BIKE_ID",
+            "type": "INTEGER",
+            "constraints": [
+                {
+                    "type": "PRIMARY KEY",
+                    "definition": "PRIMARY KEY "
+                },
+                {
+                    "type": "UNIQUE",
+                    "definition": "UNIQUE "
+                },
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "BIKE_PRICE",
+            "type": "DOUBLE",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "INDEX_IMAGE_URL",
+            "type": "STRING",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "LOCATION",
+            "type": "STRING",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        },
+        {
+            "name": "TITLE",
+            "type": "STRING",
+            "constraints": [
+                {
+                    "type": "NOT NULL",
+                    "definition": "NOT NULL"
+                }
+            ]
+        }
+    ],
+    "rows": [
+        [
+            1,
+            15,
+            "ZHENGYIYIYIYIYIYI",
+            "SKY",
+            "ZHENGYI"
+        ],
+        [
+            2,
+            20,
+            "zhengyi",
+            "plaza",
+            "ZHENGYI01"
+        ],
+        [
+            3,
+            20,
+            "qiaochu",
+            "woodhouse",
+            "churen"
+        ],
+        [
+            4,
+            20,
+            "qiaochu",
+            "woodhouse",
+            "churen"
+        ]
+    ]
+}
