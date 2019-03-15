@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .container{
+            height: 40px;
+            margin: 0 auto;
+            background-color: rebeccapurple;
+        }
+
+    /*    媒体查询*/
+        @media screen and (max-width:768px) {
+            /*超小屏幕*/
+            .container{
+                width:100%;
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width:992px) {
+            /*小屏幕*/
+            .container{
+                width: 750px;
+            }
+        }
+        @media screen and (min-width: 992px) and (max-width:1200px) {
+            /*大屏幕*/
+            .container{
+                width: 970px;
+            }
+        }
+        @media screen and (min-width: 1200px)  {
+            /*超大屏幕*/
+            .container{
+                width: 1170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+
+    <script>
+        window.addEventListener("load", function(){
+           let container = document.querySelector(".container");
+           let clientW =0 ;
+
+           resize();
+           //监听窗口大小变化
+            window.addEventListener("resize",resize)
+
+
+        function resize(){
+            //获取改变后的宽度
+            clientW = window.innerWidth;
+            // console.log(clientW);
+            if(clientW>=1200){
+                container.style.width="1170px";
+            }else if(clientW>=992) {
+                container.style.width = "970px";
+            }else if(clientW>=768) {
+                container.style.width = "750";
+            }else{
+                container.style.width = "100%";
+            }
+        }
+        });
+    </script>
+</body>
+</html>
