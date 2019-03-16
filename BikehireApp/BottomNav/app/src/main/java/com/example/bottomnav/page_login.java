@@ -16,7 +16,6 @@ import com.example.bottomnav.internet.internet;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
-import java.util.ArrayList;
 import org.apache.http.util.EncodingUtils;
 import org.json.JSONException;
 

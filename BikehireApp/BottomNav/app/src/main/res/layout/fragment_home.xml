@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
-    android:background="@android:color/darker_gray">
+    tools:context=".Home">
 
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/order"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="275dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:text="Show orders"
+        android:background="@drawable/lgi_bt_normal"
+        android:textColor="#444444"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </FrameLayout>
