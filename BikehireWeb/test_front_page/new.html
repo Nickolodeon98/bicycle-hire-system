@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .dropdown-menu{min-height:250px;overflow-y:auto; max-height:300px;}
+    </style>
+</head>
+<body>
+<div class="btn-group pull-right">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        当前仓库： <span id="currStorage">$!{storageName}</span>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        #foreach($pssStorage in $userPssStorageList)
+        <li><a href="#" class="link_select" id="$!{pssStorage.id}" >$!{pssStorage.name}</a></li>
+        <li class="divider"></li>
+        #end
+    </ul>
+</div>
+</body>
+</html>

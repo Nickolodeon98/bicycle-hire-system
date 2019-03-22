@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/map.css">
+    <title>Marker Clustering</title>
+<!--    <style>-->
+<!--        /* Always set the map height explicitly to define the size of the div-->
+<!--         * element that contains the map. */-->
+<!--        #map {-->
+<!--            height: 80%;-->
+<!--        }-->
+<!--        /* Optional: Makes the sample page fill the window. */-->
+<!--        html, body {-->
+<!--            height: 100%;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<!--header-->
+<div class="">
+    <div class="headerpage"></div>
+</div>
+<div class="map_left" style="overflow: auto">
+    <div style="height: 25%;background-color:red;"></div>
+    <div style="height: 25%;background-color:green;"></div>
+    <div style="height: 25%;background-color:blue;"></div>
+    <div style="height: 25%;background-color:red;"></div>
+    <div style="height: 25%;background-color:blue;"></div>
+</div>
+<!--header-->
+<div id="map" class="map_right"></div>
+<div class="">
+    <div class="footerpage" style="float: left;width: 100%"></div>
+</div>
+<script>
+
+    function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: {lat: 53.799626, lng: -1.542280}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    }
+    var locations = [
+        {lat:  53.804513, lng: -1.543810},
+        {lat:  53.797703, lng: -1.550883},
+        {lat:  53.796056, lng: -1.538502},
+        {lat:  53.799877, lng: -1.529039},
+        {lat:  53.794026, lng: -1.521897,}
+
+    ]
+
+</script>
+<script src="lib/jquery/jquery.js" charset="UTF-8"></script>
+<!-- import Bootstrap JS files -->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/markercluster.js">
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAQzehxGyKYMSCJJex2kTdtFK4fBrEbo0&callback=initMap">
+</script>
+<script>
+    $(function(){
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+.lk_register{
+
+    height: 800px;
+    margin:10px auto;
+    background-image: url(../imgs/regi_pic_03.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+
+
+}
+
+.lk_register .lk_register_title{
+    font-size: 30px;
+    text-align: center;
+    margin: 5px auto;
+    padding-top: 20px;
+}
+
+.lk_register .lk_register_form {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+
+}
