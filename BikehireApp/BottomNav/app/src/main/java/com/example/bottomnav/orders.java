@@ -58,7 +58,7 @@ public class orders extends AppCompatActivity {
                 String result1="";
                 String result="";
                 try {
-                    InputStream is = getResources().getAssets().open("Order.json");
+                    InputStream is = getResources().getAssets().open("test.json");
                     int length = is.available();
                     byte[] buffer = new byte[length];
                     is.read(buffer);
@@ -77,19 +77,19 @@ public class orders extends AppCompatActivity {
                     for (int i = 0; i < result_json.length(); i++) {
                         try {
                             JSONObject object = result_json.getJSONObject(i);
-                            int u_id=object.getInt("USER_ID");
+                            int u_id=object.getInt("id");
                             if (u_id==user_id){
                                 id=id+1;
-                                String order_time=object.getString("ORDER_TIME");
-
-                                String orderinfo="";
+                                String name=object.getString("name");
+                                String author=object.getString("author");
+                                double total=object.getDouble("price");
+                                String orderinfo="Order number:  "+id
+                                        +"\nUser name:  "+name
+                                        +"\nAuthor:  "+author+
+                                        "\n Total price:  "+total+"\n\n";
                                 order_info.append(orderinfo);
                             }
-                            Date order_time;
-                            Date start_time;
-                            Date end_time;
-                            String bike_name;
-                            int price;
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
