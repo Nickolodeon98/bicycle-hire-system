@@ -1,61 +1,84 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>Bikes hire system - Register</title>
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
-    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
-    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
-
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/register.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>Register Page</title>
 </head>
+<body>
 
-<body class="gray-bg">
-	<div>
-	    <h1 class="logo-name" style=" text-align:center;">Bikes</h1>
-	</div>
-    <div class="middle-box text-center loginscreen   animated fadeInDown">
-        <div>
+<div class="headerpage"></div>
 
-            <h3>Welcome to bike hire system</h3>
-            <p>Create a new account</p>
-            <form class="m-t" role="form" action="/login.html">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Please enter Username" required="">
+
+<div class="lk_register ">
+    <div class="lk_register_title">Register Page
+    </div>
+    <div class="lk_register_form">
+        <form class="form-horizontal" id="form">
+
+            <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">User Name</label>
+                <div class="col-sm-10"style="text-align: center">
+                    <input type="text" class="form-control" id="inputUserName" placeholder="User name" style="width: 600px;text-align: center">
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Please enter password" required="">
+            </div>
+            <div id="inputUsername-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" style="width: 600px;text-align: center">
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Please enter password again" required="">
+            </div>
+            <div id="inputEmail-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="width: 600px;text-align: center">
                 </div>
-                <div class="form-group text-left">
-                    <div class="checkbox i-checks" style=" text-align:center">
+            </div>
+
+            <div id="inputpassword-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="confirmpassword" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" style="width: 600px;text-align: center">
+                </div>
+            </div>
+
+            <div id="inputConfirmPassword-err"><span></span></div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="checkbox">
                         <label>
-                            <input type="checkbox">I accept the<i>Terms of Service</i></label>
+                            <input type="checkbox"> Agree with all of the demand
+                        </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
-
-                <p class="text-muted text-center"><small>Already have an account?</small><a href="login.html">Clike here to login</a>
-                </p>
-
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Register</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
-    </script>
-</body>
+</div>
 
+
+<div class="footerpage"></div>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/register.js"></script>
+
+<script>
+    $(function(){
+        $(".headerpage").load("static/html/header.html");
+        $(".footerpage").load("static/html/footer.html");
+    });
+</script>
+</body>
 </html>
