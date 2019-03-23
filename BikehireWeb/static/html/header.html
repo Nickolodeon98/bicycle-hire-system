@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/lib/bootstrap/css/bootstrap.css">
+    <link href="static/bootstrap-datetimepicker-master/sample%20in%20bootstrap%20v3/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="static/daterangepicker-master/daterangepicker.css" />
+    <title>Header</title>
+    <!-- Bootstrap -->
+    <link href="static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/index.css">
+
+</head>
+<body>
+<!--header-->
+<header id="lk_header">
+    <!--top of header-->
+    <div class="top-bar hidden-sm hidden-xs text-center text-muted">
+        <div class="container">
+            <div class="row">
+                <div class="top-bar-1 col-md-2">
+                    <a href="">
+                        <i class="icon-phone"></i>
+                        <span class="text-muted">WeChat</span>
+                        <span class="caret"></span>
+                        <img src="static/imgs/ewm_xzh.jpg" alt="2-dimension code " width="130px">
+                    </a>
+                </div>
+
+                <div class="top-bar-2 col-md-5">
+                    <i class="icon-tel"></i>
+                    <span class="text-muted">8888-555-6666 (Service Time 9:00-17:00)</span>
+                </div>
+                <div class="top-bar-3 col-md-2">
+                    <a href="" class="text-muted">Co-operation</a>
+
+                </div>
+                <div class="top-bar-4 col-md-3" id="outer">
+                        <div class="register-login" id="registerandlogin">
+                            <a class="btn btn-primary" href="register.html" role="button">Register</a>
+                            <a href="login.html" role="button" style="margin-left: 10px">Login</a>
+                        </div>
+
+                        <div class="user-info" id="user-information" ><span><a class="user-name" href="/my.html"></a></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <nav class="navbar navbar-default  navbar-lk">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="static/imgs/logo2.png" alt="this is a logo" width="200px"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">History</a></li>
+                    <li><a href="bike_browse.html">Bicycle</a></li>
+                    <li><a href="map.html">Map</a></li>
+                    <li><a href="#">Contact us</a></li>
+
+
+                </ul>
+<!--                <div>-->
+
+<!--                    <form class="navbar-form navbar-left hidden-sm hidden-xs" style="margin-top: 20px">-->
+<!--                        &lt;!&ndash;time range picker&ndash;&gt;-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="timerange">Pick&Return</label>-->
+<!--                            <input type="text" id="timerange" name="daterange" style="text-align: center" value="04/27/2019 - 05/29/2019" />-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash;time range picker&ndash;&gt;-->
+<!--                        <label for="address" style="padding-left: 20px;">Address</label>-->
+<!--                        <div class="form-group">-->
+<!--                            <select class="form-control" id="address" style="width: 200px;text-align: center">-->
+<!--                                <option>ad1</option>-->
+<!--                                <option>ad2ssss</option>-->
+<!--                                <option>3</option>-->
+<!--                                <option>4</option>-->
+<!--                                <option>5</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+
+<!--                        <button type="submit" class="btn btn-default" style="margin-left: 20px; width:150px; text-align: center">Submit</button>-->
+
+
+
+<!--                    </form>-->
+<!--                </div>-->
+
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<!--/header-->
+
+<script src="static/lib/jquery/jquery.js" charset="UTF-8"></script>
+<!-- import Bootstrap JS files -->
+<script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/js/index.js"></script>
+<script type="text/javascript" src="static/daterangepicker-master/moment.min.js"></script>
+<script type="text/javascript" src="static/daterangepicker-master/daterangepicker.js"></script>
+<script type="text/javascript" src="static/js/header.js"></script>
+<script>
+    $(document).ready(function() {
+        // 检查用户的登录状态
+        $.get("/api/v1.0/session", function (resp) {
+            if (resp.error=="0") {
+                $("#user-information .user-name").html(resp.data.name);
+                $("#registerandlogin").hide();
+                $("#user-information").show();
+            } else {
+                // $("#user-information").hide();
+                $("#registerandlogin").show();
+            }
+        }, "json");
+    })
+</script>
+</body>
+
+
+</html>

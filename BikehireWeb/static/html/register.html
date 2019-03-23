@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/register.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>Register Page</title>
+
+</head>
+<body>
+<!--头部-->
+<div class="headerpage"></div>
+<!--头部-->
+
+<div class="lk_register ">
+    <div class="lk_register_title">Register Page
+    </div>
+    <div class="lk_register_form">
+        <form class="form-horizontal" id="register-form">
+
+            <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">User Name</label>
+                <div class="col-sm-10"style="text-align: center">
+                    <input type="text" class="form-control" id="inputUserName" placeholder="User name" style="width: 600px;text-align: center">
+                </div>
+            </div>
+            <div id="inputUsername-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" style="width: 600px;text-align: center">
+                </div>
+            </div>
+            <div id="inputEmail-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" style="width: 600px;text-align: center">
+                </div>
+            </div>
+
+            <div id="inputpassword-err"><span></span></div>
+
+            <div class="form-group">
+                <label for="confirmpassword" class="col-sm-2 control-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" style="width: 600px;text-align: center">
+                </div>
+            </div>
+
+            <div id="inputConfirmPassword-err"><span></span></div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Agree with all of the demand
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--尾部-->
+<div class="footerpage"></div>
+<!--尾部-->
+<script src="static/lib/jquery/jquery.js"></script>
+<!-- 引入所有的Bootstrap的JS插件 -->
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<!-- 你自己的脚本文件 -->
+<!--<script src="static/js/register.js"></script>-->
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+    // alert("asdasd");
+    $(document).ready(function() {
+        $("#inputUserName").focus(function(){
+            $("#inputUsername-err").hide();
+        });
+        $("#inputEmail").focus(function(){
+            $("#inputEmail-err").hide();
+        });
+        $("#inputPassword").focus(function(){
+            $("#inputpassword-err").hide();
+            $("#inputConfirmPassword-err").hide();
+        });
+        $("#confirmpassword").focus(function(){
+            $("#inputConfirmPassword-err").hide();
+        });
+
+
+        // 为表单的提交补充自定义的函数行为 （提交事件e）
+        $("#register-form").submit(function(e){
+            // 阻止浏览器对于表单的默认自动提交行为
+            e.preventDefault();
+
+            var UserName = $("#inputUserName").val();
+            var Email = $("#inputEmail").val();
+            var passwd = $("#inputPassword").val();
+            var passwd2 = $("#confirmpassword").val();
+
+            if (!UserName) {
+                $("#inputUsername-err span").html("please input your Username");
+                $("#inputUsername-err").show();
+                return;
+            }
+            if (!Email) {
+                $("#inputEmail-err span").html("please input your Email");
+                $("#inputEmail-err").show();
+                return;
+            }
+            if (!passwd) {
+                $("#inputpassword-err span").html("please input your password!");
+                $("#inputpassword-err").show();
+                return;
+            }
+            if (passwd != passwd2) {
+                $("#inputConfirmPassword-err span").html("Confirm password is inconsis");
+                $("#inputConfirmPassword-err").show();
+                return;
+            }
+
+            //  Call AJAX to send a registration request to the backend
+            var req_data = {
+                name: UserName,
+                email: Email,
+                password: passwd,
+                password2: passwd2,
+            };
+            var req_json = JSON.stringify(req_data);
+            $.ajax({
+                url: "/api/v1.0/users",
+                type: "post",
+                data: req_json,
+                contentType: "application/json",
+                dataType: "json",
+                headers: {
+                    "X-CSRFToken": getCookie("csrf_token")
+                }, // Request header, put the csrf_token value in the request, to facilitate the backend CSRF to verify
+                success: function (resp) {
+                    if (resp.errno == "0") {
+                        // Successful registration, jump to the homepage
+                        location.href = "/index.html";
+                    } else {
+                        alert(resp.errmsg);
+                    }
+                }
+            })
+
+        });
+    })
+</script>
+<script>
+    $(function(){
+        $(".headerpage").load("static/html/header.html");
+        $(".footerpage").load("static/html/footer.html");
+    });
+</script>
+</body>
+</html>

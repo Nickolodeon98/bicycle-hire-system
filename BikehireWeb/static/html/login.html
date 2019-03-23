@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/login.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>Login Page</title>
+</head>
+<body>
+<!--头部-->
+<div class="headerpage"></div>
+<!--头部-->
+
+<div class="lk_back">
+    <div class="lk_login">
+        <div class="lk_login_top">Login</div>
+        <div>
+            <form class="form-horizontal" id="form-login">
+                <div class="form-group">
+                    <label for="inputUserName" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="inputUserName" placeholder="User Name">
+                    </div>
+                </div>
+
+                <div id="inputUsername-err"><span></span></div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+
+                <div id="inputpassword-err"><span></span></div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Sign in</button>
+                    </div>
+                </div>
+             </form>
+        </div>
+    </div>
+</div>
+<!--尾部-->
+<div class="footerpage"></div>
+<!--尾部-->
+<script src="static/lib/jquery/jquery.js"></script>
+<!-- 引入所有的Bootstrap的JS插件 -->
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<!-- 你自己的脚本文件 -->
+<!--<script src="static/js/login.js"></script>-->
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    $(document).ready(function() {
+        $("#inputUserName").focus(function(){
+            $("#inputUserName-err").hide();
+        });
+        $("#inputPassword").focus(function(){
+            $("#inputpassword-err").hide();
+        });
+        $("#form-login").submit(function(e){
+            e.preventDefault();
+            Username = $("#inputUserName").val();
+            passwd = $("#inputPassword").val();
+            if (!Username) {
+                $("#inputUsername-err span").html("please input the right username ");
+                $("#inputUsername-err").show();
+                return;
+            }
+            if (!passwd) {
+                $("#inputpassword-err span").html("please input the password ");
+                $("#inputpassword-err").show();
+                return;
+            }
+            // 将表单的数据存放到对象data中
+            var data = {
+                name: Username,
+                password: passwd,
+            };
+            // 将data转为json字符串
+            var jsonData = JSON.stringify(data);
+            $.ajax({
+                url:"/api/v1.0/sessions",
+                type:"post",
+                data: jsonData,
+                contentType: "application/json",
+                dataType: "json",
+                headers:{
+                    "X-CSRFToken":getCookie("csrf_token")
+                },
+                success: function (data) {
+                    if (data.errno == "0") {
+                        // 登录成功，跳转到主页
+                        location.href = "/index.html";
+                    }
+                    else {
+                        // 其他错误信息，在页面中展示
+                        $("#inputpassword-err span").html(data.errmsg);
+                        $("#inputpassword-err").show();
+                    }
+                }
+            });
+        });
+    })
+</script>
+<script>
+    $(function(){
+        $(".headerpage").load("static/html/header.html");
+        $(".footerpage").load("static/html/footer.html");
+    });
+</script>
+
+
+</body>
+</html>

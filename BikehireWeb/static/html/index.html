@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>Hape Renting bicycle</title>
+
+</head>
+<body>
+<div class="headerpage"></div>
+
+<!--轮播图-->
+
+    <section id="lk_carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#lk_carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#lk_carousel" data-slide-to="1"></li>
+        <li data-target="#lk_carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- 中间滚动的内容 -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" data-sm-img="static/imgs/p07.jpg" data-lg-img="static/imgs/bike01.jpg">
+        </div>
+        <div class="item" data-sm-img="static/imgs/p08.jpg" data-lg-img="static/imgs/bike02.jpg">
+        </div>
+        <div class="item" data-sm-img="static/imgs/p04.jpg" data-lg-img="static/imgs/p04.jpeg">
+        </div>
+    </div>
+
+    <!-- 左右控制 -->
+    <a class="left carousel-control" href="#lk_carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#lk_carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</section>
+<!--/轮播图-->
+
+<!--关于我们-->
+    <section id="lk_about" class="hidden-xs hidden-sm">
+        <!--标题-->
+        <div class="title text-center">
+            <h1><strong>About Us</strong></h1>
+            <img src="static/imgs/star.png" alt="" class="img-responsive">
+        </div>
+        <!--主要内容-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="text-muted">
+                        The School of Absenteeism is an online education brand under the weight education. Founded in June 2017, it has a strong IT instructor resource and a unique curriculum service model. Through the new education methods such as M2O, it truly solves various technical bottlenecks in the growth process of developers and helps students succeed in the IT workplace.
+
+                        The lecturers of the lecture class include a group of more than a dozen professional combat lecturers, including Li Nanjiang, Ye Jianhua, Wang Shunzi, Gao Xinqiang, etc., carefully creating six comprehensive system courses, meticulous and comprehensive, and comprehensively assisted in the generation of mechanics.
+
+                        The course system is complete, including HTML5 + full stack development, Python + artificial intelligence, JavaEE, go to language + blockchain, UI / UE design, new media, e-commerce operations and other courses.</p>
+</p>-->
+                </div>
+                <div class="col-md-4">
+                    <img src="static/imgs/p01.jpg" alt="核心团队" class="img-rounded img-responsive">
+                </div>
+                <div></div>
+            </div>
+        </div>
+
+    </section>
+
+<!--/关于我们-->
+
+<!--友情链接-->
+<section id="lk_link">
+    <!--标题-->
+    <div class="title text-center">
+        <h1><strong>More Links</strong></h1>
+        <img src="static/imgs/star.png" alt="" class="img-responsive">
+    </div>
+    <ul class="logos">
+        <li><a href="https://www.ibm.com/uk-en"><img src="static/imgs/ibm-logo.png" width="100" alt=""></a></li>
+        <li><a href="https://www.facebook.com/"><img src="static/imgs/facebook-logo.png" width="50" alt=""></a></li>
+        <li><a href="https://www.google.com.hk/webhp?hl=zh-CN&sourceid=cnhp&gws_rd=ssl"><img src="static/imgs/google-logo.png" width="50" alt=""></a></li>
+        <li><a href="https://www.airbnb.co.uk/"><img src="static/imgs/airbnb-logo.png" width="100" alt=""></a></li>
+        <li><a href="https://github.com/"><img src="static/imgs/swift-logo.png" width="50" alt=""></a></li>
+        <li><a href="https://www.paypal.com/us/home"><img src="static/imgs/paypal-logo.png" width="100" alt=""></a></li>
+        <li><a href="https://www.walmart.com/"><img src="static/imgs/walmart-logo.png" width="100" alt=""></a></li>
+    </ul>
+</section>
+<!--/友情链接-->
+
+
+<!--尾部-->
+    <div class="footerpage"></div>
+<!--/尾部-->
+
+<!-- jQuery -->
+<script src="static/lib/jquery/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<!-- Myself JS -->
+<script src="static/js/index.js"></script>
+<script>
+    $(function(){
+        $(".headerpage").load("static/html/header.html");
+        $(".footerpage").load("static/html/footer.html");
+    });
+</script>
+</body>
+</html>
