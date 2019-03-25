@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/bike_browse.css">
+    <link href="static/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <title>Bikes</title>
+</head>
+<body>
+<!--header-->
+<div class="headerpage"></div>
+<!--/header-->
+
+<!--background-->
+<div class="lk_bike_bakcground">
+<!--bike browse-->
+    <div class="lk_bike_main">
+
+        <div class="bike_Search" style="float: left;background-color: #E5E7E9;width: 100%;margin-top: 5px">
+            <form class="navbar-form navbar-left hidden-sm hidden-xs" style="margin-top: 20px">
+                <!--time range picker-->
+<!--                <div class="form-group">-->
+<!--                    <label for="timerange">Pick&Return</label>-->
+<!--                    <input type="text" id="timerange" name="daterange" style="text-align: center" value="04/27/2019 - 05/29/2019" />-->
+<!--                </div>-->
+
+
+<!-- -----------------------------------------------DatetimePicker----------------------------------------------->
+                        <div class="form-group">
+                            <div class='input-group date' id='start_Date' data-date-format="yyyy-mm-dd">
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class='input-group date' id='end_Date' data-date-format="yyyy-mm-dd">
+                                <input type='text' class="form-control" />
+                                 <span class="input-group-addon">
+                                 <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                            </div>
+                        </div>
+
+                <!-- -----------------------------------------------------DatetimePicker ----------------------------------------->
+
+                <label for="address" style="padding-left: 20px;">Address</label>
+                <div class="form-group">
+                    <select class="form-control" id="address" style="width: 200px;text-align: center">
+                        <option>ad1</option>
+                        <option>ad2</option>
+                        <option>ad3</option>
+                        <option>ad4</option>
+                        <option>ad5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default" style="margin-left: 20px; width:150px; text-align: center">Submit</button>
+            </form>
+        </div>
+
+                    <div class="lk_bikes" id="bike-id">
+                        <script id="bikes-tmpl" type="text/html">
+                        {{each bikes as bike}}
+                        <div class="lk_bike_details" >
+
+                            <div class="lk_left_bike_pic">
+                                <img class="img1" src="{{bike.img_url}}" alt="pic" style="width:92%;">
+                            </div>
+                            <div class="lk_right_bike_text">
+                                <span style="font-size: 40px">Title:</span>
+                                <a href="/bike_detail.html?id={{bike.id}}" style="font-size: 50px;">{{bike.title}}</a>
+                                <p>this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.this is a description of bike.</p>
+
+                                <em>{{bike.location_id}}</em>
+                                <p><span>Price:</span>   <span>{{bike.price}}  </span></p>
+                                <p>this is a description of bike.</p>
+                                <a class="btn btn-primary" href="/bike_details.html?id={{bike.bike_id}}" role="button">Look More Details</a>
+                            </div>
+
+                        </div>
+                        {{ /each }}
+                        </script>
+                    </div>
+
+    </div>
+    <!--/bike browse-->
+</div>
+<!--background-->
+
+<!--footer-->
+<div class="footerpage"></div>
+<!--/footer-->
+</body>
+<!-- jQuery -->
+<script src="static/lib/jquery/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<!-- Myself JS -->
+<script src="static/js/index.js"></script>
+<script type="text/javascript" src="static/bootstrap-datetimepicker-master/js/moment.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="static/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="static/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="/static/js/template.js"></script>
+<script>
+    $(function(){
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#start_Date').datetimepicker({
+            minDate: 0,
+            autoclose: 1,
+            minView: 2,
+            startDate: 0,
+        });
+        $('#end_Date').datetimepicker({
+            useCurrent: false, //avoid the dead lock
+            autoclose: 1,
+            minView: 2,
+        });
+        $("#start_Date").on("dp.change", function (e) {
+            $('#end_DateDate').data("DateTimePicker").minDate(e.date);
+        });
+        $("#end_DateDate").on("dp.change", function (e) {
+            $('#start_Date').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+
+    $(document).ready(function() {
+        // get bikes info from server
+        $.get("/api/v1.0/bikes", function (resp) {
+            if (resp.errno == "0") {
+                var bikes = resp.data.bikes;
+                var html = template("bikes-tmpl", {bikes: bikes})
+                $("#bike-id").html(html);
+
+            } else {
+                alert(resp.errmsg);
+            }
+
+        }, "json");
+    })
+
+</script>
+</html>

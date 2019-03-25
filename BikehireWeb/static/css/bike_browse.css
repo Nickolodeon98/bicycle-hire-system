@@ -1,0 +1,43 @@
+.lk_bike_bakcground{
+    background-color: #F2F4F4  ;
+}
+.lk_bike_bakcground .lk_bike_main{
+    width: 80%;
+    height: 2400px;
+    background-color: #F2F4F4;
+    margin: 0 auto;
+    /*border: 1px solid #626567;*/
+
+
+}
+
+.lk_bike_bakcground .lk_bike_main .lk_bikes{
+    height: 400px;
+    background-color: #F2F4F4  ;
+    padding-top:auto;
+    margin-top: 1px;
+
+    float: left;
+}
+
+
+.lk_bike_bakcground .lk_bike_main .lk_bikes .lk_bike_details{
+    height: 100%;
+    display: table;
+    border: 2px solid #CACFD2  ;
+
+}
+.lk_bike_bakcground .lk_bike_main .lk_bikes .lk_bike_details .lk_left_bike_pic{
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 15px;
+    /*float: left;*/
+}
+
+.lk_bike_bakcground .lk_bike_main .lk_bikes .lk_bike_details .lk_right_bike_text{
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*text-align: center;*/
+}

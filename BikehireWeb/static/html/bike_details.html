@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>Details</title>
+
+</head>
+<body>
+<div class="headerpage"></div>
+    <div>
+        <div class="bike_imgs" id="bike_imgs">
+
+            <script id="bike-image-tmpl" type="text/html">
+                <ul class="bike-wrapper">
+                    {{each img_urls as img_url}}
+                    <li class="bike-slide"><img src="{{img_url}}" style="width: 200px"></li>
+                    {{/each}}
+                </ul>
+                <div class="bike-pagination"></div>
+                <div class="bike-price"><span><p>the price of this bike:</p>{{price}}</span></div>
+            </script>
+            <div class="detail-con">
+        </div>
+        </div>
+
+        <a class="btn btn-primary" href="/bike_details.html?id={{bike.bike_id}}" role="button">Choose this bike</a>
+    </div>
+<div class="footerpage"></div>
+
+<script src="static/lib/jquery/jquery.js"></script>
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<script src="static/js/template.js"></script>
+<script>
+    $(function(){
+        $(".headerpage").load("header.html");
+        $(".footerpage").load("footer.html");
+    });
+</script>
+
+<script>
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search/id
+        if(r!=null)return  unescape(r[2]);
+        return null;
+    }
+
+    $(document).ready(function() {
+        var bike_ID = GetQueryString("id");
+        $.get("/api/v1.0/bikes/" + bike_ID, function(resp){
+
+            if (resp.errno == "0" ) {
+                $("#bike_imgs").html(template("bike-image-tmpl", {img_urls:resp.data.bike.img_urls, price:resp.data.bike.price}));
+            } else {
+                alert(resp.errmsg);
+            }
+        },"json");
+    });
+
+
+</script>
+</body>
+</html>

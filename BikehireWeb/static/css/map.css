@@ -1,0 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.map_left {
+    width: 25%;
+    float:left;
+    height: 800px;
+    border: 1px solid #3B6273;
+}
+
+.map_right {
+    width: 75%;
+    float:left;
+    height: 800px;
+    border: 1px solid #3B6273;
+}
+
+/*#map {*/
+/*    height: 80%;*/
+/*}*/

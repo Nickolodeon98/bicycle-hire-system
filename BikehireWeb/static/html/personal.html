@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="static/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" href="static/imgs/ride_favicon.ico" type="image/x-icon">
+    <title>your Personal Order</title>
+
+</head>
+<body>
+
+<p>
+    this is the id
+
+</p>
+
+<div class="order" id="orders">
+
+    <script id="bike-image-tmpl" type="text/html">
+        <ul class="bike-wrapper">
+            {{each img_urls as img_url}}
+            <li class="bike-slide"><img src="{{img_url.img_url}}"></li>
+            {{/each}}
+        </ul>
+        <div class="bike-pagination"></div>
+        <div class="bike-price"><span>{{price}}</span></div>
+    </script>
+    <div class="detail-con">
+    </div>
+</div>
+
+
+<script src="static/lib/jquery/jquery.js"></script>
+<script src="static/lib/bootstrap/js/bootstrap.js"></script>
+<script src="static/js/template.js"></script>
+</body>
+
+<script>
+
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search/id
+        if(r!=null)return  unescape(r[2]);
+        return null;
+    }
+
+    $(document).ready(function() {
+        var user_id = GetQueryString("id");
+        $.get("/api/v1.0/orders/" + user_id, function(resp){
+            if (resp.errno == "0" ) {
+                // alert("welcome");
+                $("#orders").html(template("user-tmpl", {
+                    order: resp.data.bikes.img_urls,
+                    price: resp.data.bikes.price
+                }));
+            } else {
+                alert(resp.errmsg);
+            }
+        },"json");
+    });
+
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+.order_back{
+    background-image: url(../imgs/bgp_02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+
+}
+.main_order{
+    background-color:rgba(255,255,255,0.7);
+    height: 500px;
+    width: 800px;
+    /*border: 1px solid #000;*/
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-400px;
+    margin-top:-280px;
+}
+.order_Details{
+    width: 100%;
+    /*background-color:rgba(255,255,255,0.7);*/
+    text-align: center;
+    height: 1000px;
+    vertical-align: middle;
+    padding-top: 20px;
+}
