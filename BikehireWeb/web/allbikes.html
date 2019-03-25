@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Hape bikes hire management system</title>
+	
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="wrapper wrapper-content animated fadeInUp">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>All orders</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row m-b-sm m-t-sm">
+
+						
+							<form class="form-horizontal m-t">
+							
+							<div class="form-group filter-title-bar">
+								
+								<div class="col-md-12 filter-title">
+									<label class="col-sm-1 control-label">Choose date：</label>
+									<input id="start" placeholder="Begin date" class="col-sm-1 laydate-icon form-control layer-date" >
+									<input id="end" placeholder="End date" class="col-sm-1 laydate-icon form-control layer-date" >
+								
+
+									<button type="button" id="location-search" class="btn btn-primary col-sm-1 col-sm-offset-1" data-toggle="modal" data-target="#myModal5">
+										Locations
+									</button>
+									
+									<div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title">Locations</h4>
+													<small class="font-bold">Please choose a location.
+												</div>
+												<div class="modal-body" id="location-id">
+												<p><strong>H+</strong> </p>
+												<script type="text/html" id="locations-tmpl">
+													{{ each locations as location}}
+													
+													<button type="button" class="btn btn-w-m btn-primary" value="{{ location.lid }}">{{ location.lname }}</button>
+													
+													{{ /each }}
+												</script>
+													
+												</div>
+
+												<div class="modal-footer">
+													<button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-primary">Confirm</button>
+												</div>
+											</div>
+										</div>
+									</div>								
+								</div>
+							</div>
+							
+
+							
+							<div  style="display:none;" class="form-group">
+								<label class="col-sm-2 control-label">js：</label>
+								<div class="col-sm-10">
+									<input id="hello" class="laydate-icon form-control layer-date">
+								</div>
+							</div>
+							
+							</form>
+
+                        </div>
+
+                        <div class="project-list">
+
+                            <table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Bike ID</th>
+										<th>Name</th>
+										<th>Price</th>
+										<th>Deposit</th>
+										<th>Location</th>
+										<th>Comment</th>
+										<th>Images</th>
+									</tr>
+								</thead>							
+                                <tbody id="bike-info" name="bike_info">
+
+									
+									<script type="text/html" id="bike-tmpl">
+									{{ each bikes as bike}}
+									<tr>
+									    <td class="project-status">
+                                            <span class="label label-primary">{{bike.title}}
+                                        </td>
+										<td class="project-title">
+                                            <a href="profile.html/{{bike.bike_id}}" id="downloadLink"><span>{{bike.title}}<span></a>
+                                            <br/>
+                                            <small>Created</small>
+                                        </td>
+
+										<td>{{bike.bike_id}}</td>
+										<td>{{bike.title}}</td>
+										<td>{{bike.price}}</td>
+										<td>{{bike.location_name}}</td>
+										<td>
+                                            <a href="projects.html"><img alt="image" width="150" height="150" class="img-preview" src="{{bike.img_url}}"></a>
+                                        </td>										
+
+									</tr>
+									{{ /each }}
+									</script>
+									         
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Global js -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	
+    <!-- Third-party plugins -->
+	<script src="js/plugins/layer/laydate/laydate.js"></script>
+
+    <!-- Custom js -->
+	<script src="js/content.js"></script>
+	<script src="js/template.js"></script>
+	<script src="js/orders.js"></script>
+
+    </body>
+</html>
