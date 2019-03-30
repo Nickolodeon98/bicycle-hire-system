@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
 
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_account);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
