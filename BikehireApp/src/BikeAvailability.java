@@ -1,16 +1,17 @@
 import java.io.*;
 import java.util.*;
+import java.lang.StringBuilder;
 
 class BikeAvailability {
   private Date clock;
   private boolean available;
   private int bikeNum = 0;
   private static int[][] bikeMap = new int[10][10];
-  private final int[][] saved;
+  private int[][] saved;
   private Bike[][] storage = new Bike[10][10];
 
   public static enum Rental {
-    Rent, Returned;
+    Rent, Returned, New;
   }
   public static class Bike {
     public String label;
@@ -30,30 +31,14 @@ class BikeAvailability {
   public void initBikes(Date initTime) {
     int i = 0;
     int j = 0;
-    Bike returnedBike;
+    Bike newOne;
 
-    if (saved == null) {
-      System.out.println("hello");
-      saved = new int[10][10];
-      for (i=0; i<10; i++) {
-        for (j=0; j<10; j++) {
-          bikeMap[i][j] = 3;
-          returnedBike = new Bike("null", i, j, initTime);
-          returnedBike.status = Rental.Returned;
-          storage[i][j] = returnedBike;
-        }
-      }
-    }
-    else {
-      for (i=0; i<10; i++) {
-        for (j=0; j<10; j++) {
-          if (bikeMap[i][j] == 3) {
-            returnedBike = new Bike("null", i, j, initTime);
-            returnedBike.status = Rental.Returned;
-            storage[i][j] = returnedBike;
-          }
-          else if (bikeMap[i][j] == 1) System.out.println("second time running");
-        }
+    for (i=0; i<bikeMap.length; i++) {
+      for (j=0; j<bikeMap[i].length; j++) {
+        bikeMap[i][j] = 3;
+        newOne = new Bike("new", i, j, initTime);
+        newOne.status = Rental.New;
+        storage[i][j] = newOne;
       }
     }
   }
@@ -63,8 +48,9 @@ class BikeAvailability {
     int j = 0;
     Bike returnedBike;
 
-    for (i=0; i<10; i++) {
-      for (j=0; j<10; j++) {
+    for (i=0; i<bikeMap.length; i++) {
+      for (j=0; j<bikeMap[i].length; j++) {
+        bikeMap[i][j] = 0;
         returnedBike = new Bike("null", i, j, initTime);
         returnedBike.status = Rental.Returned;
         storage[i][j] = returnedBike;
@@ -73,7 +59,7 @@ class BikeAvailability {
   }
 
   public Bike hireBike(String bikeName, int x, int y, Date eventTime) {
-    // bikeMap[x][y] = 1;
+    bikeMap[x][y] = 1;
     Bike newBike = new Bike(bikeName, x, y, eventTime);
 
     newBike.status = Rental.Rent;
@@ -86,40 +72,92 @@ class BikeAvailability {
     int i;
     int j;
 
-
-    for (i=0; i<storage.length; i++) {
-      for (j=0; j<storage[i].length; j++) {
-        if (storage[i][j].status == Rental.Returned) {
-          bikeMap[i][j] = 3;
-        }
-        else if (storage[i][j].status == Rental.Rent) {
-          bikeMap[i][j] = 1;
-        }
-        if (storage[i][j].status == Rental.Returned) {
-          System.out.printf("3 ");
-        }
-        else if (storage[i][j].status == Rental.Rent) {
-          System.out.printf("1 ");
-        }
-        // else System.out.printf(bikeMap[i][j] + " ");
+    for (i=0; i<bikeMap.length; i++) {
+      for (j=0; j<bikeMap[i].length; j++) {
+        System.out.printf(bikeMap[i][j] + " ");
       }
       System.out.println();
     }
   }
 
-  public void returnBike(int x, int y) {
-    bikeMap[x][y] = 0;
-  }
-
-  public int[][] save(int[][] map) {
-    int[][] recall = new int[map.length][];
+  public void returnBike(String bikeName) {
     int i;
-    for (i=0; i<map.length; i++) {
-      recall[i] = Arrays.copyOf(map[i], map[i].length);
+    int j;
+    int row;
+    int column;
+
+    for (i=0; i<storage.length; i++) {
+      for (j=0; j<storage[i].length; j++) {
+        if (bikeName.equals(storage[i][j].label)) {
+          System.out.println("found");
+          row = i;
+          column = j;
+          storage[row][column].status = Rental.Returned;
+          storage[row][column].label = "null";
+          bikeMap[row][column] = 0;
+        }
+      }
     }
-    return recall;
   }
 
+  public void save() {
+    StringBuilder arrayFile = new StringBuilder();
+    int i;
+    int j;
+    BufferedWriter fileWriter;
+
+    for(i=0; i<bikeMap.length; i++) {
+      for(j=0; j<bikeMap[i].length; j++) {
+        arrayFile.append(bikeMap[i][j] + "");
+        if (j < bikeMap.length - 1) {
+          arrayFile.append(", ");
+        }
+      }
+      arrayFile.append("\n");
+    }
+    try {
+      fileWriter = new BufferedWriter(new FileWriter("saved.txt"));
+      fileWriter.write(arrayFile.toString());
+      fileWriter.close();
+    } catch(IOException err) {
+      System.err.println(err);
+    }
+  }
+
+  public int[][] load() {
+    String fileToLoad = "saved.txt";
+
+    int[][] savedMap = new int[10][10];
+    BufferedReader fileReader;
+    String data = "";
+    int row = 0;
+    // int count = 0;
+
+    try {
+      fileReader = new BufferedReader(new FileReader(fileToLoad));
+
+      while ((data = fileReader.readLine()) != null) {
+        String[] columns = data.split(", ");
+        int column = 0;
+        for (String bit : columns) {
+          // count++;
+          // System.out.println(count);
+          savedMap[row][column] = Integer.parseInt(bit);
+          if (savedMap[row][column] == 3) storage[row][column].status = Rental.Returned;
+          else storage[row][column].status = Rental.Rent;
+          // System.out.println(savedMap[row][column]);
+          column++;
+        }
+        row++;
+      }
+      fileReader.close();
+    } catch (FileNotFoundException err) {
+      System.err.println(err);
+    } catch (IOException err) {
+      System.err.println(err);
+    }
+    return savedMap;
+  }
 
   public Bike checkBike() {
     int row = 0;
@@ -128,10 +166,10 @@ class BikeAvailability {
     int j;
     boolean checked = false;
 
-    for (i=0; i<10; i++) {
+    for (i=0; i<storage.length; i++) {
       if (checked) break;
-      for (j=0; j<10; j++) {
-        if (storage[i][j].status == Rental.Returned) {
+      for (j=0; j<storage[i].length; j++) {
+        if (storage[i][j].status == Rental.Returned || storage[i][j].status == Rental.New) {
           available = true;
           bikeNum++;
           row = i;
@@ -158,24 +196,28 @@ class BikeAvailability {
     Bike sample;
     Date now = new Date();
     Scanner userInput = new Scanner(System.in);
-    // int[][] retrieved = new int[10][10];
 
     example.initBikes(now);
+    while(true) {
+      System.out.println("Enter any commands: ");
+      String command = userInput.nextLine();
 
-    System.out.printf("What bike do you want to rent? ");
-    String userBike = userInput.nextLine();
-
-    sample = example.checkBike();
-    sample = example.hireBike(userBike, sample.row, sample.column, now);
-    // saved = example.save(bikeMap);
-    // for(int i =0; i<saved.length; i++) {
-    //   for (int j=0; j<saved[i].length; j++) {
-    //     System.out.printf(saved[i][j] + " ");
-    //   }
-    //   System.out.println();
-    // }
-
-    example.printMap();
-    // example.checkBike();
+      if (command.equals("save")) example.save();
+      else if (command.equals("hire")) {
+        System.out.printf("What bike do you want to rent? ");
+        String userBike = userInput.nextLine();
+        sample = example.checkBike();
+        sample = example.hireBike(userBike, sample.row, sample.column, now);
+      }
+      else if (command.equals("load")) {
+        bikeMap = example.load();
+      }
+      else if (command.equals("return")) {
+        example.returnBike("me");
+      }
+      else if (command.equals("print")) example.printMap();
+      else if (command.equals("exit")) System.exit(1);
+      else System.out.println("Wrong comment");
+    }
   }
 }
