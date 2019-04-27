@@ -3,6 +3,7 @@ from config import config_map
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 from flask_wtf import CSRFProtect
+from flask_mail import Mail
 
 
 import redis
@@ -16,7 +17,8 @@ db = SQLAlchemy()
 # create redis object
 redis_store = None
 
-
+#flask_mail
+mail = Mail()
 # logging
 
 logging.basicConfig(level=logging.INFO)
@@ -24,6 +26,9 @@ file_log_handler = RotatingFileHandler("logs/log", maxBytes=1024*1024*100, backu
 formatter = logging.Formatter('%(levelname)s %(filename)s:%(lineno)d %(message)s')
 file_log_handler.setFormatter(formatter)
 logging.getLogger().addHandler(file_log_handler)
+
+
+
 
 def create_app(config_name):
     """
@@ -35,7 +40,7 @@ def create_app(config_name):
 
     config_class = config_map.get(config_name)
     app.config.from_object(config_class)
-
+    mail.init_app(app)
     db.init_app(app)
     # init redis
     global redis_store
@@ -53,3 +58,4 @@ def create_app(config_name):
     from app import web_html
     app.register_blueprint(web_html.html)
     return app
+

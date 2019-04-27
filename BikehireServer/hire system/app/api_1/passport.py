@@ -18,16 +18,17 @@ def register():
     req_dict = request.get_json()
 
     name = req_dict.get("name")
+    email = req_dict.get("email")
     password = req_dict.get("password")
     password2 = req_dict.get("password2")
 
-    if not all([name, password, password2]):
+    if not all([name,email, password, password2]):
         return jsonify(errno=RET.PARAMERR, errmsg="missing parameters")
 
     if password != password2:
         return jsonify(errno=RET.PARAMERR, errmsg="password not match")
 
-    user = User(name=name)
+    user = User(name=name,email=email)
     user.password = password
 
     try:
@@ -81,3 +82,16 @@ def login():
     session["name"] = user.name
     session["user_id"] = user.id
     return jsonify(errno=RET.OK, errmsg="login success")
+
+@api.route("/session",methods = ["GET"])
+def check_login():
+    name = session.get("name")
+    if name is not None:
+        return jsonify(error=RET.OK,errmsy="true",data={"name":name})
+    else:
+        return jsonify(errno=RET.SESSIONERR,errmsg="false")
+
+@api.route("/session",methods=["DELETE"])
+def logout():
+    session.clear()
+    return jsonify(errno=RET.OK,errmsg="OK")
